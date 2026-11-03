@@ -2,1159 +2,1137 @@
 <html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Portfolio de Menivale Justine, étudiante en formation ASV. Découvrez mon parcours, mes expériences en clinique vétérinaire et mon projet professionnel.">
-
-    <title>Menivale Justine | Portfolio ASV</title>
-
-    <style>
-        /* ==============================
-           VARIABLES ET STYLE GENERAL
-        ============================== */
-
-        :root {
-            --vert: #438f83;
-            --vert-fonce: #245d58;
-            --menthe: #e3f2ed;
-            --menthe-clair: #f2f9f6;
-            --beige: #f4ede2;
-            --blanc: #ffffff;
-            --texte: #263f40;
-            --gris: #718080;
-            --ombre: 0 5px 20px rgba(35, 80, 75, 0.08);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 85px;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--blanc);
-            color: var(--texte);
-            line-height: 1.7;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1150px;
-            margin: auto;
-        }
-
-        .section {
-            padding: 85px 0;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: var(--vert-fonce);
-            margin-bottom: 12px;
-        }
-
-        .section-subtitle {
-            color: var(--gris);
-            margin-bottom: 35px;
-        }
-
-        /* ==============================
-           NAVIGATION
-        ============================== */
-
-        header {
-            background: rgba(255, 255, 255, 0.97);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--ombre);
-        }
-
-        .navbar {
-            min-height: 75px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo {
-            color: var(--vert-fonce);
-            font-size: 1.3rem;
-            font-weight: bold;
-        }
-
-        .logo span {
-            display: block;
-            font-size: 0.75rem;
-            color: var(--gris);
-            font-weight: normal;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--vert);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: var(--vert-fonce);
-            cursor: pointer;
-        }
-
-        /* ==============================
-           ACCUEIL
-        ============================== */
-
-        .hero {
-            min-height: 530px;
-            display: flex;
-            align-items: center;
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(242, 249, 246, 0.98) 0%,
-                    rgba(242, 249, 246, 0.90) 43%,
-                    rgba(242, 249, 246, 0.05) 100%
-                ),
-                url("img/accroche-veterinaire.jpg");
-
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero-content {
-            max-width: 570px;
-            padding: 70px 0;
-        }
-
-        .hero-label {
-            color: var(--vert);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            line-height: 1.15;
-            color: var(--vert-fonce);
-            margin-bottom: 15px;
-        }
-
-        .hero h2 {
-            font-size: 1.4rem;
-            font-weight: 500;
-            margin-bottom: 18px;
-        }
-
-        .hero p {
-            font-size: 1.05rem;
-            color: #536666;
-            margin-bottom: 28px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--vert);
-            color: white;
-            padding: 13px 27px;
-            border-radius: 30px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: var(--vert-fonce);
-            transform: translateY(-3px);
-        }
-
-        /* ==============================
-           PROFIL
-        ============================== */
-
-        .profil {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 55px;
-            align-items: center;
-        }
-
-        .profil-image {
-            height: 390px;
-            width: 100%;
-            object-fit: cover;
-            border-radius: 25px;
-            background: var(--menthe);
-        }
-
-        .profil-text p {
-            margin-bottom: 17px;
-        }
-
-        .info-box {
-            margin-top: 25px;
-            background: var(--beige);
-            padding: 22px;
-            border-radius: 18px;
-        }
-
-        .info-box p {
-            margin-bottom: 9px;
-            overflow-wrap: anywhere;
-        }
-
-        .info-box strong {
-            color: var(--vert-fonce);
-        }
-
-        /* ==============================
-           COMPETENCES
-        ============================== */
-
-        .competences-section {
-            background: var(--menthe-clair);
-        }
-
-        .competences-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .competence-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: var(--ombre);
-            border-bottom: 4px solid var(--vert);
-        }
-
-        .competence-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .competence-card h3 {
-            color: var(--vert-fonce);
-            margin-bottom: 15px;
-        }
-
-        .competence-card ul {
-            padding-left: 20px;
-        }
-
-        .competence-card li {
-            margin-bottom: 8px;
-        }
-
-        .note {
-            margin-top: 25px;
-            color: var(--gris);
-            font-size: 0.9rem;
-        }
-
-        /* ==============================
-           REALISATIONS
-        ============================== */
-
-        .realisations-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .realisation-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--ombre);
-            border: 1px solid #edf1ee;
-            transition: 0.3s;
-        }
-
-        .realisation-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .realisation-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            background: var(--menthe);
-        }
-
-        .realisation-content {
-            padding: 25px;
-        }
-
-        .realisation-content h3 {
-            color: var(--vert-fonce);
-            margin-bottom: 10px;
-        }
-
-        .realisation-date {
-            display: inline-block;
-            color: var(--vert);
-            font-weight: bold;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .realisation-content p {
-            margin-bottom: 8px;
-        }
-
-        .realisation-type {
-            display: inline-block;
-            background: var(--menthe);
-            color: var(--vert-fonce);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-top: 10px;
-        }
-
-        /* ==============================
-           CONTACT
-        ============================== */
-
-        .contact-section {
-            background: var(--menthe);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-details {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-        }
-
-        .contact-details p {
-            margin-bottom: 18px;
-            overflow-wrap: anywhere;
-        }
-
-        .contact-details strong {
-            color: var(--vert-fonce);
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #d8e5df;
-            border-radius: 12px;
-            font-family: inherit;
-            font-size: 1rem;
-            background: white;
-        }
-
-        .contact-form textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: 2px solid var(--vert);
-        }
-
-        .contact-form button {
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        /* ==============================
-           FOOTER
-        ============================== */
-
-        footer {
-            background: var(--vert-fonce);
-            color: white;
-            padding: 25px 0;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 0.9rem;
-        }
-
-        /* ==============================
-           ANIMATIONS
-        ============================== */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.7s, transform 0.7s;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ==============================
-           RESPONSIVE TELEPHONE
-        ============================== */
-
-        @media (max-width: 800px) {
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 75px;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 25px;
-                gap: 18px;
-                box-shadow: var(--ombre);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero {
-                min-height: 480px;
-                background-position: 60% center;
-            }
-
-            .profil,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .profil-image {
-                height: 300px;
-            }
-
-            .competences-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .realisations-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-        }
-
-        @media (max-width: 450px) {
-
-            .container {
-                width: 92%;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero h2 {
-                font-size: 1.15rem;
-            }
-
-            .section-title {
-                font-size: 1.7rem;
-            }
-
-            .realisation-card img {
-                height: 190px;
-            }
-        }
-
-        /* Respect des préférences d'accessibilité */
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *, *::before, *::after {
-                transition-duration: 0.01ms !important;
-            }
-
-            .reveal {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Menivale Justine | Portfolio ASV</title>
+
+<meta name="description" content="Portfolio professionnel de Menivale Justine, étudiante en formation ASV.">
+
+<style>
+
+/* =================================
+   COULEURS DU SITE
+================================= */
+
+:root {
+    --rose: #e99aaa;
+    --rose-fonce: #c96f87;
+    --rose-clair: #fff0f2;
+    --orange: #efa16e;
+    --orange-clair: #fff0e3;
+    --creme: #fffaf6;
+    --blanc: #ffffff;
+    --texte: #514047;
+    --gris: #86777c;
+    --ombre: 0 5px 22px rgba(190, 110, 130, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--creme);
+    color: var(--texte);
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-family: Georgia, serif;
+    font-size: 2.2rem;
+    color: var(--rose-fonce);
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    color: var(--gris);
+    margin-bottom: 35px;
+}
+
+/* =================================
+   NAVIGATION
+================================= */
+
+header {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--ombre);
+}
+
+.navbar {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    color: var(--rose-fonce);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--orange);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--orange);
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 1.8rem;
+    color: var(--rose-fonce);
+    cursor: pointer;
+}
+
+/* =================================
+   ACCUEIL
+================================= */
+
+.hero {
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,240,242,0.98) 0%,
+            rgba(255,240,242,0.85) 45%,
+            rgba(255,240,242,0.10) 100%
+        ),
+        url("img/accroche-veterinaire.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 600px;
+    padding: 75px 0;
+}
+
+.hero-label {
+    color: var(--orange);
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    color: var(--rose-fonce);
+    font-size: clamp(2.7rem, 6vw, 4.5rem);
+    line-height: 1.15;
+    margin-bottom: 15px;
+}
+
+.hero h2 {
+    color: var(--texte);
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+    max-width: 480px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--rose-fonce);
+    color: white;
+    padding: 13px 28px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--orange);
+    transform: translateY(-3px);
+}
+
+/* =================================
+   PROFIL
+================================= */
+
+.profil {
+    display: grid;
+    grid-template-columns: 0.9fr 1.3fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.profil-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 25px;
+    background: var(--rose-clair);
+}
+
+.profil-text p {
+    margin-bottom: 16px;
+}
+
+.info-box {
+    background: var(--orange-clair);
+    padding: 23px;
+    border-radius: 20px;
+    margin-top: 25px;
+}
+
+.info-box p {
+    margin-bottom: 9px;
+    overflow-wrap: anywhere;
+}
+
+.info-box strong {
+    color: var(--rose-fonce);
+}
+
+/* =================================
+   COMPETENCES
+================================= */
+
+.competences-section {
+    background: var(--rose-clair);
+}
+
+.competences-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.competence-card {
+    background: white;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: var(--ombre);
+    border-bottom: 5px solid var(--orange);
+    transition: 0.3s;
+}
+
+.competence-card:hover {
+    transform: translateY(-5px);
+}
+
+.competence-icon {
+    font-size: 2.7rem;
+    margin-bottom: 15px;
+}
+
+.competence-card h3 {
+    color: var(--rose-fonce);
+    margin-bottom: 15px;
+}
+
+.competence-card ul {
+    padding-left: 20px;
+}
+
+.competence-card li {
+    margin-bottom: 8px;
+}
+
+.note {
+    margin-top: 25px;
+    color: var(--gris);
+    font-size: 0.9rem;
+}
+
+/* =================================
+   EXPERIENCES
+================================= */
+
+.realisations-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.realisation-card {
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: var(--ombre);
+    border: 1px solid #f8e5e8;
+    transition: 0.3s;
+}
+
+.realisation-card:hover {
+    transform: translateY(-5px);
+}
+
+.realisation-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    background: var(--orange-clair);
+}
+
+.realisation-content {
+    padding: 25px;
+}
+
+.realisation-content h3 {
+    color: var(--rose-fonce);
+    margin-bottom: 12px;
+}
+
+.realisation-date {
+    display: inline-block;
+    color: var(--orange);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.realisation-content p {
+    margin-bottom: 8px;
+}
+
+.realisation-type {
+    display: inline-block;
+    background: var(--rose-clair);
+    color: var(--rose-fonce);
+    padding: 6px 13px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+/* =================================
+   CONTACT
+================================= */
+
+.contact-section {
+    background: var(--orange-clair);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+.contact-details {
+    background: white;
+    border-radius: 22px;
+    padding: 30px;
+}
+
+.contact-details h3 {
+    color: var(--rose-fonce);
+    margin-bottom: 25px;
+}
+
+.contact-details p {
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+.contact-details strong {
+    color: var(--rose-fonce);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #f1d5d9;
+    border-radius: 13px;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    background: white;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid var(--rose);
+}
+
+.contact-form button {
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    background: var(--rose-fonce);
+    color: white;
+    padding: 28px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin: 5px;
+}
+
+/* =================================
+   ANIMATIONS
+================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: 0.7s;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =================================
+   VERSION TELEPHONE
+================================= */
+
+@media(max-width: 800px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 25px;
+        gap: 18px;
+        box-shadow: var(--ombre);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 480px;
+        background-position: 60% center;
+    }
+
+    .profil,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .profil-image {
+        height: 300px;
+    }
+
+    .competences-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .realisations-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+}
+
+@media(max-width: 450px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+}
+
+@media(prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- ==============================
-         MENU DE NAVIGATION
-    ============================== -->
+<!-- =================================
+     MENU
+================================= -->
 
-    <header>
-        <nav class="navbar container">
+<header>
 
-            <a href="#accueil" class="logo">
-                Menivale Justine
-                <span>ASV • PORTFOLIO</span>
-            </a>
+<nav class="navbar container">
 
-            <button class="menu-toggle"
-                    id="menuToggle"
-                    aria-label="Ouvrir le menu"
-                    aria-expanded="false">
-                ☰
-            </button>
+    <a href="#accueil" class="logo">
+        Menivale Justine
+        <span>ASV • PORTFOLIO</span>
+    </a>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#profil">Mon profil</a></li>
-                <li><a href="#competences">Mes compétences</a></li>
-                <li><a href="#realisations">Mes réalisations</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <button class="menu-toggle"
+            id="menuToggle"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false">
+        ☰
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#profil">Mon profil</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#realisations">Expériences</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+
+</header>
+
+
+<!-- =================================
+     ACCUEIL
+================================= -->
+
+<section class="hero" id="accueil">
+
+<div class="container">
+
+    <div class="hero-content reveal">
+
+        <div class="hero-label">
+            Bienvenue dans mon univers
+        </div>
+
+        <h1>Menivale Justine</h1>
+
+        <h2>Étudiante en formation ASV 🐾</h2>
+
+        <p>
+            Passionnée par le monde animal,
+            je souhaite développer mes compétences
+            et participer au bien-être des animaux
+            au sein d'une équipe vétérinaire.
+        </p>
+
+        <a href="#profil" class="btn">
+            Découvrir mon profil →
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =================================
+     PROFIL
+================================= -->
+
+<section class="section" id="profil">
+
+<div class="container profil">
+
+    <div class="reveal">
+
+        <img
+            src="img/profil.jpg"
+            alt="Photo de présentation"
+            class="profil-image"
+            loading="lazy"
+        >
+
+    </div>
+
+    <div class="profil-text reveal">
+
+        <h2 class="section-title">Qui suis-je ? 🌷</h2>
+
+        <p>
+            Je m'appelle <strong>Menivale Justine</strong>,
+            j'ai 19 ans et je suis actuellement
+            en formation ASV (Auxiliaire Spécialisé Vétérinaire).
+        </p>
+
+        <p>
+            Mes différentes expériences en clinique
+            vétérinaire m'ont permis de découvrir
+            le quotidien des vétérinaires et des
+            auxiliaires spécialisés vétérinaires.
+        </p>
+
+        <p>
+            Mon objectif professionnel est de continuer
+            à apprendre, développer mes compétences
+            et contribuer au bon fonctionnement
+            d'une structure vétérinaire.
+        </p>
+
+        <div class="info-box">
+
+            <p><strong>🎓 Formation :</strong> ASV</p>
+
+            <p><strong>🎂 Âge :</strong> 19 ans</p>
+
+            <p><strong>🚗 Permis :</strong> B en cours</p>
+
+            <p>
+                <strong>📍 Adresse :</strong>
+                10 rue des Frères Allégret,
+                34490 Lignan-sur-Orb
+            </p>
+
+            <p>
+                <strong>✉️ Email :</strong>
+                <a href="mailto:justine.menivale@gmail.com">
+                    justine.menivale@gmail.com
+                </a>
+            </p>
+
+            <p>
+                <strong>📞 Téléphone :</strong>
+                <a href="tel:0769608866">
+                    07 69 60 88 66
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =================================
+     COMPETENCES
+================================= -->
+
+<section class="section competences-section"
+         id="competences">
+
+<div class="container">
+
+    <h2 class="section-title reveal">
+        Mes compétences 🌸
+    </h2>
+
+    <p class="section-subtitle reveal">
+        Les domaines découverts au cours de mes expériences.
+    </p>
+
+    <div class="competences-grid">
+
+        <article class="competence-card reveal">
+
+            <div class="competence-icon">🐾</div>
+
+            <h3>Accueil et relation client</h3>
+
+            <ul>
+                <li>Accueil des clients et de leurs animaux</li>
+                <li>Prise en charge des appels téléphoniques</li>
+                <li>Découverte de la relation client</li>
             </ul>
 
-        </nav>
-    </header>
+        </article>
+
+        <article class="competence-card reveal">
+
+            <div class="competence-icon">🩺</div>
+
+            <h3>Milieu vétérinaire</h3>
+
+            <ul>
+                <li>Observation du travail des vétérinaires</li>
+                <li>Aide aux vétérinaires et assistantes vétérinaires</li>
+                <li>Découverte du fonctionnement d'une clinique</li>
+            </ul>
+
+        </article>
+
+        <article class="competence-card reveal">
+
+            <div class="competence-icon">📋</div>
+
+            <h3>Organisation et hygiène</h3>
+
+            <ul>
+                <li>Gestion administrative</li>
+                <li>Découverte de l'hygiène clinique</li>
+                <li>Entretien des équipements</li>
+            </ul>
+
+        </article>
+
+    </div>
+
+    <p class="note reveal">
+        Mes outils informatiques, protocoles et compétences
+        techniques pourront être complétés au fil de ma formation.
+    </p>
+
+</div>
+
+</section>
 
 
-    <!-- ==============================
-         ACCUEIL
-    ============================== -->
+<!-- =================================
+     EXPERIENCES
+================================= -->
 
-    <section class="hero" id="accueil">
+<section class="section" id="realisations">
 
-        <div class="container">
+<div class="container">
 
-            <div class="hero-content reveal">
+    <h2 class="section-title reveal">
+        Mes expériences 🐶
+    </h2>
 
-                <div class="hero-label">
-                    Portfolio professionnel
-                </div>
+    <p class="section-subtitle reveal">
+        Mes stages et mes premières découvertes du milieu vétérinaire.
+    </p>
 
-                <h1>Menivale Justine</h1>
+    <div class="realisations-grid" id="realisationsGrid">
+    </div>
 
-                <h2>Étudiante en formation ASV</h2>
+</div>
 
-                <p>
-                    Intéressée par le domaine vétérinaire,
-                    je souhaite développer mes connaissances
-                    et mes compétences au service du bien-être animal.
-                </p>
+</section>
 
-                <a href="#profil" class="btn">
-                    Découvrir mon profil →
+
+<!-- =================================
+     CONTACT
+================================= -->
+
+<section class="section contact-section" id="contact">
+
+<div class="container">
+
+    <h2 class="section-title reveal">
+        Contact 💌
+    </h2>
+
+    <p class="section-subtitle reveal">
+        N'hésitez pas à me contacter pour échanger
+        sur mon parcours ou mes motivations.
+    </p>
+
+    <div class="contact-grid">
+
+        <div class="contact-details reveal">
+
+            <h3>Mes coordonnées</h3>
+
+            <p>
+                ✉️ <strong>Email</strong><br>
+                <a href="mailto:justine.menivale@gmail.com">
+                    justine.menivale@gmail.com
                 </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==============================
-         MON PROFIL
-    ============================== -->
-
-    <section class="section" id="profil">
-
-        <div class="container profil">
-
-            <div class="reveal">
-
-                <img
-                    src="img/profil.jpg"
-                    alt="Illustration de l'univers vétérinaire"
-                    class="profil-image"
-                    loading="lazy"
-                >
-
-            </div>
-
-            <div class="profil-text reveal">
-
-                <h2 class="section-title">Mon profil</h2>
-
-                <p>
-                    Je m'appelle <strong>Menivale Justine</strong>,
-                    j'ai 19 ans et je suis actuellement
-                    en formation ASV (Auxiliaire Spécialisé Vétérinaire).
-                </p>
-
-                <p>
-                    Mon parcours m'a permis de découvrir le fonctionnement
-                    de plusieurs structures vétérinaires à travers
-                    différentes expériences de stage.
-                </p>
-
-                <p>
-                    Mon objectif professionnel est de poursuivre
-                    mon apprentissage, de développer mes compétences
-                    et de contribuer au bon fonctionnement d'une
-                    structure vétérinaire dans le respect du bien-être animal.
-                </p>
-
-                <div class="info-box">
-
-                    <p>
-                        <strong>Formation :</strong> ASV
-                    </p>
-
-                    <p>
-                        <strong>Âge :</strong> 19 ans
-                    </p>
-
-                    <p>
-                        <strong>Permis :</strong> B en cours
-                    </p>
-
-                    <p>
-                        <strong>Adresse :</strong>
-                        10 rue des Frères Allégret,
-                        34490 Lignan-sur-Orb
-                    </p>
-
-                    <p>
-                        <strong>Email :</strong>
-                        <a href="mailto:justine.menivale@gmail.com">
-                            justine.menivale@gmail.com
-                        </a>
-                    </p>
-
-                    <p>
-                        <strong>Téléphone :</strong>
-                        <a href="tel:0769608866">
-                            07 69 60 88 66
-                        </a>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==============================
-         COMPETENCES
-    ============================== -->
-
-    <section class="section competences-section"
-             id="competences">
-
-        <div class="container">
-
-            <h2 class="section-title reveal">
-                Mes compétences
-            </h2>
-
-            <p class="section-subtitle reveal">
-                Les domaines que j'ai pu découvrir au cours de mes expériences.
-            </p>
-
-            <div class="competences-grid">
-
-                <article class="competence-card reveal">
-
-                    <div class="competence-icon">🐾</div>
-
-                    <h3>Accueil et relation client</h3>
-
-                    <ul>
-                        <li>Accueil des clients et de leurs animaux</li>
-                        <li>Prise en charge des appels téléphoniques</li>
-                        <li>Découverte de la relation client</li>
-                    </ul>
-
-                </article>
-
-
-                <article class="competence-card reveal">
-
-                    <div class="competence-icon">🩺</div>
-
-                    <h3>Environnement vétérinaire</h3>
-
-                    <ul>
-                        <li>Observation du travail des vétérinaires</li>
-                        <li>Aide aux vétérinaires et ASV</li>
-                        <li>Découverte de l'organisation clinique</li>
-                    </ul>
-
-                </article>
-
-
-                <article class="competence-card reveal">
-
-                    <div class="competence-icon">📋</div>
-
-                    <h3>Gestion et hygiène</h3>
-
-                    <ul>
-                        <li>Gestion administrative</li>
-                        <li>Découverte de l'hygiène clinique</li>
-                        <li>Entretien des équipements</li>
-                    </ul>
-
-                </article>
-
-            </div>
-
-            <p class="note reveal">
-                Les outils informatiques, protocoles d'hygiène et
-                techniques spécifiques maîtrisés pourront être ajoutés
-                au fur et à mesure de ma formation.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==============================
-         REALISATIONS ET EXPERIENCES
-    ============================== -->
-
-    <section class="section" id="realisations">
-
-        <div class="container">
-
-            <h2 class="section-title reveal">
-                Mes réalisations et expériences
-            </h2>
-
-            <p class="section-subtitle reveal">
-                Mes stages et mes découvertes du milieu vétérinaire.
-            </p>
-
-            <!-- Les cartes sont générées automatiquement en JavaScript -->
-
-            <div class="realisations-grid" id="realisationsGrid">
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==============================
-         CONTACT
-    ============================== -->
-
-    <section class="section contact-section" id="contact">
-
-        <div class="container">
-
-            <h2 class="section-title reveal">
-                Me contacter
-            </h2>
-
-            <p class="section-subtitle reveal">
-                Pour échanger sur mon parcours, mes motivations
-                ou une éventuelle opportunité professionnelle.
-            </p>
-
-            <div class="contact-grid">
-
-                <div class="contact-details reveal">
-
-                    <h3>Mes coordonnées</h3>
-
-                    <br>
-
-                    <p>
-                        ✉️ <strong>Email</strong><br>
-                        <a href="mailto:justine.menivale@gmail.com">
-                            justine.menivale@gmail.com
-                        </a>
-                    </p>
-
-                    <p>
-                        📞 <strong>Téléphone</strong><br>
-                        <a href="tel:0769608866">
-                            07 69 60 88 66
-                        </a>
-                    </p>
-
-                    <p>
-                        📍 <strong>Localisation</strong><br>
-                        Lignan-sur-Orb (34490)
-                    </p>
-
-                </div>
-
-
-                <!-- Formulaire ouvrant le logiciel de messagerie -->
-
-                <form class="contact-form reveal" id="contactForm">
-
-                    <input
-                        type="text"
-                        id="nom"
-                        placeholder="Votre nom"
-                        aria-label="Votre nom"
-                        required
-                    >
-
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Votre adresse email"
-                        aria-label="Votre adresse email"
-                        required
-                    >
-
-                    <textarea
-                        id="message"
-                        placeholder="Votre message..."
-                        aria-label="Votre message"
-                        required
-                    ></textarea>
-
-                    <button type="submit" class="btn">
-                        Envoyer mon message →
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==============================
-         PIED DE PAGE
-    ============================== -->
-
-    <footer>
-
-        <div class="container">
-
-            <p>
-                © <span id="annee"></span>
-                Menivale Justine | Portfolio ASV
             </p>
 
             <p>
-                Au service du bien-être animal 🐾
+                📞 <strong>Téléphone</strong><br>
+                <a href="tel:0769608866">
+                    07 69 60 88 66
+                </a>
+            </p>
+
+            <p>
+                📍 <strong>Localisation</strong><br>
+                Lignan-sur-Orb (34490)
             </p>
 
         </div>
 
-    </footer>
+        <form class="contact-form reveal" id="contactForm">
 
+            <input
+                type="text"
+                id="nom"
+                placeholder="Votre nom"
+                aria-label="Votre nom"
+                required
+            >
 
-    <!-- ==============================
-         JAVASCRIPT
-    ============================== -->
+            <input
+                type="email"
+                id="email"
+                placeholder="Votre adresse email"
+                aria-label="Votre adresse email"
+                required
+            >
 
-    <script>
+            <textarea
+                id="message"
+                placeholder="Votre message..."
+                aria-label="Votre message"
+                required
+            ></textarea>
 
-        /* ==================================
-           1. TABLEAU UNIQUE DES REALISATIONS
+            <button type="submit" class="btn">
+                Envoyer mon message →
+            </button>
 
-           Pour modifier une expérience :
-           - Modifier son titre
-           - Modifier sa date
-           - Modifier sa structure
-           - Modifier sa description
-           - Modifier son image
-        ================================== */
+        </form>
 
-        const realisations = [
+    </div>
 
-            {
-                titre: "Préparation au contrat d'apprentissage",
+</div>
 
-                date: "Juillet 2025 (2 semaines)",
+</section>
 
-                structure: "Clinique vétérinaire Mazeran",
 
-                description:
-                    "Accueil des clients et de leurs animaux, aide aux vétérinaires et assistants vétérinaires, gestion administrative, prise en charge des appels téléphoniques, hygiène clinique et équipements.",
+<!-- =================================
+     FOOTER
+================================= -->
 
-                image: "img/mazeran.jpg",
+<footer>
 
-                type: "Préparation professionnelle"
-            },
+<div class="container">
 
-            {
-                titre: "Stage à la Clinique vétérinaire Anid’oc",
+    <p>
+        © <span id="annee"></span>
+        Menivale Justine | Portfolio ASV
+    </p>
 
-                date: "Avril 2025 (1 semaine)",
+    <p>
+        Avec passion, au service du bien-être animal 🐾
+    </p>
 
-                structure: "Clinique vétérinaire Anid’oc",
+</div>
 
-                description:
-                    "Observation et aide aux vétérinaires et assistantes vétérinaires.",
+</footer>
 
-                image: "img/stage-anidoc-avril.jpg",
 
-                type: "Stage à initiative personnelle"
-            },
+<!-- =================================
+     JAVASCRIPT
+================================= -->
 
-            {
-                titre: "Stage à la Clinique vétérinaire Anid’oc",
+<script>
 
-                date: "Février 2025 (1 semaine)",
+/* =================================
+   1. TABLEAU DES EXPERIENCES
 
-                structure: "Clinique vétérinaire Anid’oc",
+   Pour ajouter une expérience :
+   Copie un bloc et modifie ses informations.
+================================= */
 
-                description:
-                    "Observation et aide aux vétérinaires et assistantes vétérinaires.",
+const realisations = [
 
-                image: "img/stage-anidoc-fevrier.jpg",
+    {
+        titre: "Préparation au contrat d'apprentissage",
 
-                type: "Stage à initiative personnelle"
-            },
+        date: "Juillet 2025 (2 semaines)",
 
-            {
-                titre: "Stage d'observation",
+        structure: "Clinique vétérinaire Mazeran",
 
-                date: "Juin 2023 (1 semaine)",
+        description:
+        "Accueil des clients et de leurs animaux, aide aux vétérinaires et assistants vétérinaires, gestion administrative, prise en charge des appels téléphoniques, hygiène clinique et équipements.",
 
-                structure: "Clinique vétérinaire Anid’oc",
+        image: "img/mazeran.jpg",
 
-                description:
-                    "Découverte et observation de l'environnement professionnel vétérinaire.",
+        type: "Préparation professionnelle"
+    },
 
-                image: "img/stage-anidoc-2023.jpg",
+    {
+        titre: "Stage à la Clinique vétérinaire Anid'oc",
 
-                type: "Stage à initiative personnelle"
-            }
+        date: "Avril 2025 (1 semaine)",
 
-        ];
+        structure: "Clinique vétérinaire Anid'oc",
 
+        description:
+        "Observation et aide aux vétérinaires et assistantes vétérinaires.",
 
-        /* ==================================
-           2. AFFICHAGE DES REALISATIONS
-        ================================== */
+        image: "img/stage-anidoc-avril.jpg",
 
-        const grille = document.getElementById("realisationsGrid");
+        type: "Stage à initiative personnelle"
+    },
 
-        realisations.forEach((experience) => {
+    {
+        titre: "Stage à la Clinique vétérinaire Anid'oc",
 
-            const carte = document.createElement("article");
+        date: "Février 2025 (1 semaine)",
 
-            carte.className = "realisation-card reveal";
+        structure: "Clinique vétérinaire Anid'oc",
 
-            const image = document.createElement("img");
+        description:
+        "Observation et aide aux vétérinaires et assistantes vétérinaires.",
 
-            image.src = experience.image;
-            image.alt = experience.titre;
-            image.loading = "lazy";
+        image: "img/stage-anidoc-fevrier.jpg",
 
-            // Affiche une illustration de remplacement
-            // si une image est absente du dossier img.
+        type: "Stage à initiative personnelle"
+    },
 
-            image.onerror = function () {
-                this.style.display = "none";
-            };
+    {
+        titre: "Stage d'observation",
 
-            const contenu = document.createElement("div");
+        date: "Juin 2023 (1 semaine)",
 
-            contenu.className = "realisation-content";
+        structure: "Clinique vétérinaire Anid'oc",
 
-            const titre = document.createElement("h3");
-            titre.textContent = experience.titre;
+        description:
+        "Découverte et observation de l'environnement professionnel vétérinaire.",
 
-            const date = document.createElement("span");
-            date.className = "realisation-date";
-            date.textContent = "📅 " + experience.date;
+        image: "img/stage-anidoc-2023.jpg",
 
-            const structure = document.createElement("p");
-            structure.textContent = "📍 " + experience.structure;
+        type: "Stage à initiative personnelle"
+    }
 
-            const description = document.createElement("p");
-            description.textContent = experience.description;
+];
 
-            const type = document.createElement("span");
-            type.className = "realisation-type";
-            type.textContent = experience.type;
 
-            contenu.appendChild(titre);
-            contenu.appendChild(date);
-            contenu.appendChild(structure);
-            contenu.appendChild(description);
-            contenu.appendChild(type);
+/* =================================
+   2. GENERATION DES CARTES
+================================= */
 
-            carte.appendChild(image);
-            carte.appendChild(contenu);
+const grille = document.getElementById("realisationsGrid");
 
-            grille.appendChild(carte);
+realisations.forEach(experience => {
 
-        });
+    const carte = document.createElement("article");
+    carte.className = "realisation-card reveal";
 
+    const image = document.createElement("img");
 
-        /* ==================================
-           3. MENU MOBILE
-        ================================== */
+    image.src = experience.image;
+    image.alt = experience.titre;
+    image.loading = "lazy";
 
-        const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
+    image.onerror = function() {
+        this.style.display = "none";
+    };
 
-        menuToggle.addEventListener("click", () => {
+    const contenu = document.createElement("div");
+    contenu.className = "realisation-content";
 
-            const ouvert = navLinks.classList.toggle("active");
+    const titre = document.createElement("h3");
+    titre.textContent = experience.titre;
 
-            menuToggle.setAttribute("aria-expanded", ouvert);
+    const date = document.createElement("span");
+    date.className = "realisation-date";
+    date.textContent = "📅 " + experience.date;
 
-            menuToggle.textContent = ouvert ? "✕" : "☰";
+    const structure = document.createElement("p");
+    structure.textContent = "📍 " + experience.structure;
 
-        });
+    const description = document.createElement("p");
+    description.textContent = experience.description;
 
-        // Fermer le menu après avoir cliqué sur un lien.
+    const type = document.createElement("span");
+    type.className = "realisation-type";
+    type.textContent = experience.type;
 
-        document.querySelectorAll(".nav-links a").forEach((lien) => {
+    contenu.append(
+        titre,
+        date,
+        structure,
+        description,
+        type
+    );
 
-            lien.addEventListener("click", () => {
+    carte.append(image, contenu);
 
-                navLinks.classList.remove("active");
+    grille.appendChild(carte);
 
-                menuToggle.setAttribute("aria-expanded", "false");
+});
 
-                menuToggle.textContent = "☰";
 
-            });
+/* =================================
+   3. MENU TELEPHONE
+================================= */
 
-        });
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
+menuToggle.addEventListener("click", () => {
 
-        /* ==================================
-           4. ANIMATIONS AU DEFILEMENT
-        ================================== */
+    const ouvert = navLinks.classList.toggle("active");
 
-        const observer = new IntersectionObserver((elements) => {
+    menuToggle.setAttribute("aria-expanded", ouvert);
 
-            elements.forEach((element) => {
+    menuToggle.textContent = ouvert ? "✕" : "☰";
 
-                if (element.isIntersecting) {
+});
 
-                    element.target.classList.add("visible");
+document.querySelectorAll(".nav-links a").forEach(lien => {
 
-                    observer.unobserve(element.target);
+    lien.addEventListener("click", () => {
 
-                }
+        navLinks.classList.remove("active");
 
-            });
+        menuToggle.setAttribute("aria-expanded", "false");
 
-        }, {
-            threshold: 0.1
-        });
+        menuToggle.textContent = "☰";
 
-        function observerAnimations() {
+    });
 
-            document.querySelectorAll(".reveal:not(.visible)")
-                .forEach((element) => observer.observe(element));
+});
+
+
+/* =================================
+   4. ANIMATIONS
+================================= */
+
+const observer = new IntersectionObserver(elements => {
+
+    elements.forEach(element => {
+
+        if(element.isIntersecting) {
+
+            element.target.classList.add("visible");
+
+            observer.unobserve(element.target);
 
         }
 
-        observerAnimations();
+    });
+
+}, { threshold: 0.1 });
 
 
-        /* ==================================
-           5. FORMULAIRE DE CONTACT
+function observerAnimations() {
 
-           Le formulaire prépare un email.
-           Il ne nécessite pas de serveur.
-        ================================== */
+    document.querySelectorAll(".reveal:not(.visible)")
+    .forEach(element => observer.observe(element));
 
-        const contactForm = document.getElementById("contactForm");
+}
 
-        contactForm.addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            const nom = document.getElementById("nom").value;
-
-            const email = document.getElementById("email").value;
-
-            const message = document.getElementById("message").value;
-
-            const sujet = encodeURIComponent(
-                "Contact depuis mon portfolio ASV"
-            );
-
-            const corps = encodeURIComponent(
-                "Nom : " + nom +
-                "\nEmail : " + email +
-                "\n\nMessage :\n" + message
-            );
-
-            window.location.href =
-                "mailto:justine.menivale@gmail.com" +
-                "?subject=" + sujet +
-                "&body=" + corps;
-
-        });
+observerAnimations();
 
 
-        /* ==================================
-           6. ANNEE AUTOMATIQUE
-        ================================== */
+/* =================================
+   5. CONTACT PAR EMAIL
+================================= */
 
-        document.getElementById("annee").textContent =
-            new Date().getFullYear();
+document.getElementById("contactForm")
+.addEventListener("submit", event => {
 
-    </script>
+    event.preventDefault();
+
+    const nom = document.getElementById("nom").value;
+
+    const email = document.getElementById("email").value;
+
+    const message = document.getElementById("message").value;
+
+    const sujet = encodeURIComponent(
+        "Contact depuis mon portfolio ASV"
+    );
+
+    const corps = encodeURIComponent(
+        "Nom : " + nom +
+        "\nEmail : " + email +
+        "\n\nMessage :\n" + message
+    );
+
+    window.location.href =
+        "mailto:justine.menivale@gmail.com" +
+        "?subject=" + sujet +
+        "&body=" + corps;
+
+});
+
+
+/* =================================
+   6. ANNEE AUTOMATIQUE
+================================= */
+
+document.getElementById("annee").textContent =
+    new Date().getFullYear();
+
+</script>
 
 </body>
 </html>
